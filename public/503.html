@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
+  <title>503 - Service Unavailable</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
@@ -28,24 +28,24 @@
     }
     .error-container{
       background:rgba(20,20,20,0.85);
-      border:1px solid red;
+      border:1px solid orange;
       border-radius:20px;
       padding:30px;
       max-width:600px;
       width:100%;
-      box-shadow:0 0 30px rgba(255,0,0,0.6);
+      box-shadow:0 0 30px rgba(255,165,0,0.6);
     }
     .error-icon{
       font-size:4rem;
       margin-bottom:1rem;
-      color:red;
+      color:orange;
     }
     .error-code{
       font-size:8rem;
       font-weight:bold;
       margin-bottom:1rem;
-      color:red;
-      text-shadow:0 0 20px rgba(255,0,0,0.7);
+      color:orange;
+      text-shadow:0 0 20px rgba(255,165,0,0.7);
     }
     .error-title{
       font-size:2.5rem;
@@ -63,7 +63,7 @@
       display:inline-flex;
       align-items:center;
       gap:0.5rem;
-      background:red;
+      background:orange;
       color:white;
       padding:12px 24px;
       border:none;
@@ -72,12 +72,12 @@
       font-weight:500;
       text-decoration:none;
       transition:all 0.3s ease;
-      box-shadow:0 0 15px red;
+      box-shadow:0 0 15px orange;
     }
     .btn-home:hover{
       transform:translateY(-2px);
-      box-shadow:0 0 25px rgba(255,0,0,0.9);
-      background:#ff3333;
+      box-shadow:0 0 25px rgba(255,165,0,0.9);
+      background:#ffb84d;
     }
     @media(max-width:768px){
       .error-code{font-size:6rem;}
@@ -90,12 +90,12 @@
   <canvas id="bg"></canvas>
 
   <div class="error-container">
-    <div class="error-icon"><i class="fas fa-exclamation-triangle"></i></div>
-    <div class="error-code">404</div>
-    <h1 class="error-title">Page Not Found</h1>
+    <div class="error-icon"><i class="fas fa-server"></i></div>
+    <div class="error-code">503</div>
+    <h1 class="error-title">Service Unavailable</h1>
     <p class="error-message">
-      Oops! The page you're looking for seems to have vanished into the digital void.<br>
-      Don't worry, it happens to the best of us.
+      Sorry! Our server is currently unavailable.<br>
+      Please try again later.
     </p>
     <a href="/home" class="btn-home">
       <i class="fas fa-home"></i> Back to Home
@@ -131,7 +131,7 @@
         if(p.y<0||p.y>canvas.height)p.vy*=-1;
         ctx.beginPath();
         ctx.arc(p.x,p.y,2,0,Math.PI*2);
-        ctx.fillStyle="red";
+        ctx.fillStyle="orange";
         ctx.fill();
       }
       for(let i=0;i<POINTS;i++){
@@ -140,7 +140,7 @@
           let dy=points[i].y-points[j].y;
           let dist=Math.sqrt(dx*dx+dy*dy);
           if(dist<150){
-            ctx.strokeStyle="rgba(255,0,0,"+(1-dist/150)+")";
+            ctx.strokeStyle="rgba(255,165,0,"+(1-dist/150)+")";
             ctx.lineWidth=0.7;
             ctx.beginPath();
             ctx.moveTo(points[i].x,points[i].y);
